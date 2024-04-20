@@ -12,30 +12,36 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  List<String> selectedAnswers=[];
+  List<String> selectedAnswers = [];
   Widget? activeScreen;
   @override
   void initState() {
-    activeScreen= StartScreen(switchScreen);
+    activeScreen = StartScreen(switchScreen);
     super.initState();
   }
+
   void switchScreen() {
     setState(() {
-      activeScreen = QustionsScreen(onSelectAnswer:chooseAnswer);
+      activeScreen = QustionsScreen(onSelectAnswer: chooseAnswer);
     });
   }
-  void chooseAnswer(String answer){
+
+  void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
-    if(selectedAnswers.length==questions.length){
-      setState(() {  
-        activeScreen=ResultScreen(chosenAnswers: selectedAnswers, onRestart: restartQuiz,);  
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        activeScreen = ResultScreen(
+          chosenAnswers: selectedAnswers,
+          onRestart: restartQuiz,
+        );
       });
     }
   }
-  void restartQuiz(){
+
+  void restartQuiz() {
     setState(() {
-      activeScreen=QustionsScreen(onSelectAnswer: chooseAnswer);
-      selectedAnswers=[];
+      activeScreen = QustionsScreen(onSelectAnswer: chooseAnswer);
+      selectedAnswers = [];
     });
   }
 
@@ -47,10 +53,14 @@ class _QuizState extends State<Quiz> {
         body: Container(
           height: double.infinity,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 85, 208, 255),
-              Color.fromARGB(255, 7, 136, 187),
-            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 85, 208, 255),
+                Color.fromARGB(255, 7, 136, 187),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
           ),
           child: activeScreen,
         ),

@@ -6,9 +6,9 @@ class QuestionSummary extends StatelessWidget {
 
   final List<Map<String, Object>> summarydata;
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return SizedBox(
-      height: 450, 
+      height: 450,
       child: SingleChildScrollView(
         child: Column(
           children: summarydata.map(

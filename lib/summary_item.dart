@@ -29,7 +29,7 @@ class SummaryItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 5, 
+                height: 5,
               ),
               Text(
                 itemData["user_answer"] as String,
@@ -37,7 +37,6 @@ class SummaryItem extends StatelessWidget {
                   color: Color.fromARGB(255, 57, 113, 159),
                 ),
               ),
-              
               Text(
                 itemData["correct_answer"] as String,
                 style: const TextStyle(
